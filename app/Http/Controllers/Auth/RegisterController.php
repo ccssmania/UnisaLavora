@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Student;
+use App\Company;
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Notifications\UserActivate;
 class RegisterController extends Controller
 {
     /*
@@ -27,7 +30,6 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -62,10 +64,49 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user = User::find(1);
+        $user->notify(new UserActivate("hola"));
+
+        $user= new User();
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        
+        $user->roll = $data['roll'];
+        if($user->save())
+        {
+            if($data['roll'] == env("COMPANY")){
+                $company = new Company();
+                $company->name = $data['name'];
+                $company->phone = $data['phone'];
+                $company->user_id = $user->id;
+                $company->address = $data['address'];
+                $company->dni = $data['dni'];
+                if($company->save()){
+                    Session::flash("message", "User Created");
+                    return redirect("/home");
+                }else{
+                    Session::flash("errorMessage", "Something was wrong");
+                    return redirect("/register");
+                }
+            }elseif($data['roll'] == env("STUDENT")){
+
+                $student = new Student();
+                $student->name = $data['name'];
+                $student->phone = $data['phone'];
+                $student->address = $data['address'];
+                $student->user_id = $user->id;
+                $student->id = $data['id'];
+                if($student->save()){
+                    Session::flash("message", "User Created");
+                    return redirect("/home");
+                }else{
+                    Session::flash("errorMessage", "Something was wrong");
+                    return redirect("/register");
+                }
+            }
+        }else{
+            Session::flash("errorMessage", "Something was wrong");
+            return redirect("/register");
+        }
     }
 }
