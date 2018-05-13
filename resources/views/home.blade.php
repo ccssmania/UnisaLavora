@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Please wait for the active account
+                    Please wait for the activation account!
                 </div>
             </div>
         </div>

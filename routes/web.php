@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/activate', 'ActivateController@index');
+Route::post('/activate/{id}', 'ActivateController@activate');
+Route::post('/activate/ignore/{id}', 'ActivateController@ignore');

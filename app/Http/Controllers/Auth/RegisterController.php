@@ -8,8 +8,9 @@ use App\Company;
 use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Notifications\UserActivate;
+use App\Notifications\ConfirmActivation;
 class RegisterController extends Controller
 {
     /*
@@ -64,9 +65,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::find(1);
-        $user->notify(new UserActivate("hola"));
-
         $user= new User();
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
@@ -83,6 +81,8 @@ class RegisterController extends Controller
                 $company->dni = $data['dni'];
                 if($company->save()){
                     Session::flash("message", "User Created");
+                    $users = User::where('roll',0)->get();
+                    Notification::send($users, new UserActivate("hola"));
                     return redirect("/home");
                 }else{
                     Session::flash("errorMessage", "Something was wrong");
@@ -97,6 +97,8 @@ class RegisterController extends Controller
                 $student->user_id = $user->id;
                 $student->id = $data['id'];
                 if($student->save()){
+                    $users = User::where('roll',0)->get();
+                    Notification::send($users, new UserActivate("hola"));
                     Session::flash("message", "User Created");
                     return redirect("/home");
                 }else{

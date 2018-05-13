@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class UserActivate extends Notification
+class ConfirmActivation extends Notification
 {
     use Queueable;
 
@@ -40,12 +40,9 @@ class UserActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/activate');
-
         return (new MailMessage)
-                    ->greeting('Hello!')
-                    ->line('There are candidates has been activated!')
-                    ->action('View Candidates', $url)
+                    ->line('Your account has been activated')
+                    ->action('Login', url('/login'))
                     ->line('Thank you for using our application!');
     }
 
@@ -58,8 +55,7 @@ class UserActivate extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user_id' => $notifiable->id,
-            'type' => 'user_activate',
+            'type' => 'comfirm_activate',
         ];
     }
 }

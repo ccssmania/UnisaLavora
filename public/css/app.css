@@ -7654,4 +7654,8 @@ button.close {
   margin-bottom: 0px !important;
 }
 
+.active_form {
+  display: inline-block;
+}
+
 /*# sourceMappingURL=app.css.map */
