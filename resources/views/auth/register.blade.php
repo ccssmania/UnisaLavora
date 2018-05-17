@@ -83,7 +83,7 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="roll" required="" id="select" onchange="student_company();">
                                     <option value="" disabled selected>Select One</option>
-                                    <option value="1">@lang("project.company)</option>
+                                    <option value="1">@lang("project.company")</option>
                                     <option value="2">@lang("project.student")</option>
                                 </select>
                             </div>
