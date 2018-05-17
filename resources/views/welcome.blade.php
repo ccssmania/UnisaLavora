@@ -85,7 +85,7 @@
                     <div class="text-center tipo">
                         <h3> Candidates </h3>
                     </div>
-                    <div class="row">
+                    <div class="row clearfix">
                         @foreach($users as $user)
                             @include("candidates.show")
                         @endforeach

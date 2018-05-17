@@ -15,7 +15,7 @@
                     @endif
                     @if (!Auth::guest())
                         @if(Auth::user()->active != 1)
-                            Please wait for the activation account!
+                            @lang("project.wait_activation_p")
                         @else
                             @lang("project.logged")
                         @endif

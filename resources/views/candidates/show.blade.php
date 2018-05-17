@@ -1,8 +1,8 @@
-<div class="col-md-4">
-	<div class="card" style="width: 25rem;">
+<div class="col-md-4 ">
+	<div class="card" style="width: 25rem; min-height: 400px; max-height: 400px;">
 		<div class="text-center">
 			
-			<img class="card-img-top" style="margin-top: 15px;" src="{{url('/images/small/'.$user->id.'.jpg')}}" onerror="this.src='{{url("/images/perfil.png")}}'" alt="Card image cap">
+			<img class="card-img-top " style="margin-top: 15px; " src="{{url('/images/small/'.$user->id.'.jpg')}}" onerror="this.src='{{url("/images/small/perfil.png")}}'" alt="Card image cap">
 		</div>
 		<div class="card-body">
 			<h4 class="card-title text-center">{{$user->user->name}}</h4>
