@@ -22,8 +22,8 @@
 						<td> {{$user->user? $user->user->phone : '' }} </td>
 						<td> {{$user->user ? $user->user->address : ''}} </td>
 						<td >
-							@include('activate.activate',['url' =>'/activate/'.$user->id])
-							@include('activate.ignore',['url' =>'/activate/ignore/'.$user->id])
+							@include('activate.activate',['url' => url('/activate/'.$user->id)])
+							@include('activate.ignore',['url' => url('/activate/ignore/'.$user->id)])
 						</td>
 					</tr>
 				@endforeach

@@ -13,6 +13,7 @@
 
 Route::post('/activate/{id}', 'ActivateController@activate');
 Route::post('/activate/ignore/{id}', 'ActivateController@ignore');
+Route::post('/perfil/edit/{id}', 'PerfilController@update');
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 	Route::get("/language/{language}", function($language){
@@ -37,7 +38,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	
 	Route::get('/perfil', 'PerfilController@index');
 	Route::get('/perfil/edit/{id}', 'PerfilController@edit');
-	Route::post('/perfil/edit/{id}', 'PerfilController@update');
+	
 
 	Route::get('/notification/{type}/{id}', 'NotificationsController@index');
 
