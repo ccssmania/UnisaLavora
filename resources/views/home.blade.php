@@ -17,11 +17,11 @@
                         @if(Auth::user()->active != 1)
                             Please wait for the activation account!
                         @else
-                            You are Logged!
+                            @lang("project.logged")
                         @endif
                     @else
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">@lang("project.login") </a></li>
+                        <li><a href="{{ route('register') }}">@lang("project.register") </a></li>
                     @endif
                 </div>
             </div>

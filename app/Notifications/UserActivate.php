@@ -43,10 +43,10 @@ class UserActivate extends Notification
         $url = url('/activate');
 
         return (new MailMessage)
-                    ->greeting('Hello!')
-                    ->line('There are candidates hto activate!')
+                    ->greeting(\Lang::get("project.hello"))
+                    ->line(\Lang::get("project.user_activate"))
                     ->action('View Candidates', $url)
-                    ->line('Thank you for using our application!');
+                    ->line(\Lang::get("project.app_tanks"));
     }
 
     /**
@@ -60,8 +60,8 @@ class UserActivate extends Notification
         return [
             'user_id' => $notifiable->id,
             'type' => 'user_activate',
-            'name' => 'Activate Users',
-            'description' => 'There are candidates hto activate!',
+            'name' => \Lang::get("project.au"),
+            'description' => \Lang::get("project.user_activate"),
         ];
     }
 }

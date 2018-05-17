@@ -43,9 +43,10 @@ class ConfirmActivation extends Notification
     {
         
         return (new MailMessage)
-                    ->line('Your account has been activated')
+                    ->subject(\Lang::get("project.confirm_subject"))
+                    ->line(\Lang::get("project.account_activated"))
                     ->action('Login', url('/login'))
-                    ->line('Thank you for using our application!');
+                    ->line(\Lang::get("project.app_thanks"));
     }
 
     /**
@@ -58,8 +59,8 @@ class ConfirmActivation extends Notification
     {
         return [
             'type' => 'confirm_activate',
-            'name'  => 'Activation Confirmated',
-            'description' => 'Your account has been activated',
+            'name'  => \Lang::get("project.confirm_subject"),
+            'description' => \Lang::get("project.account_activated"),
         ];
     }
 }

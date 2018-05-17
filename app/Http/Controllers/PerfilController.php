@@ -85,10 +85,10 @@ class PerfilController extends Controller
         }
 
         if($user_sc->save() && $user->save()){
-            Session::flash("message","User Updated!");
+            Session::flash("message", \Lang::get("project.user_updated"));
             return redirect('/perfil');
         }else{
-            Session::flash("errorMessage","Something was wrong!");
+            Session::flash("errorMessage",\Lang::get("project.wrong"));
             return redirect('/perfil');
         }
 

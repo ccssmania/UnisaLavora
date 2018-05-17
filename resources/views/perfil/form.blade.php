@@ -7,13 +7,13 @@
 					{{ csrf_field() }}
 					
 						<div class="form-group big-margin-top">
-							<label class="col-md-4 control-label">Name</label>
+							<label class="col-md-4 control-label">@lang("project.name") </label>
 							<div class="col-md-6">
 								<input type="text" name="name" placeholder="{{$user->user->name ? $user->user->name : 'Name'}}" class="form-control">
 							</div>
 						</div>
 						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-				            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+				            <label for="email" class="col-md-4 control-label">@lang("project.email") </label>
 
 				            <div class="col-md-6">
 				                <input id="email" type="email" class="form-control" name="email" placeholder="{{$user->email? $user->email : 'E-mail'}}">
@@ -26,19 +26,19 @@
 				            </div>
 				        </div>
 						<div class="form-group">
-							<label class="col-md-4 control-label">Phone</label>
+							<label class="col-md-4 control-label">@lang("project.phone_number") </label>
 							<div class="col-md-6">
 								<input type="number" name="phone" placeholder="{{$user->user->phone ? $user->user->phone : 'Phone'}}" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-4 control-label">Address</label>
+							<label class="col-md-4 control-label">@lang("project.address") </label>
 							<div class="col-md-6">
 								<input type="text" name="address" placeholder="{{$user->user->address ? $user->user->address : 'Address'}}" class="form-control">
 							</div>
 						</div>
 						<div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
-							<label class="col-md-4 control-label">Picture</label>
+							<label class="col-md-4 control-label">@lang("project.picture") </label>
 							<div class="col-md-6">
 								<table class="table">
 						            <tr>
@@ -87,7 +87,7 @@
 							                </th>
 							                <th>
 								                <h3>Change</h3>
-								                <p class="text-danger">Only PDF</p>
+								                <p class="text-danger">@lang("project.only") PDF</p>
 								                <input type="file" name="cv">
 								                @if ($errors->has('cv'))
 				                                    <span class="help-block">
@@ -117,10 +117,10 @@
 							</div>
 						@endif
 						<div class="form-group">
-							<label class="col-md-4 control-label">Change Password</label>
+							<label class="col-md-4 control-label">@lang("project.change") @lang("project.password")</label>
 							<div class="col-md-6">
 								<a class="btn btn-link" href="{{ route('password.request') }}">
-						            Forgot Your Password?
+						            @lang("project.change") @lang("project.password")?
 						        </a>
 							</div>
 						</div>

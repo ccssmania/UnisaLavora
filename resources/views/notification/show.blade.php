@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-info">
-                <div class="panel-heading">Notification</div>
+                <div class="panel-heading">@lang("project.notification") </div>
 
                 <div class="panel-body">
                     
@@ -18,7 +18,7 @@
 						</div>
 						<div class="col-sm-6">
 							<p>
-								<strong>Descripcción</strong>
+								<strong>@lang("project.description") </strong>
 							</p>
 							<table>
 								<td>

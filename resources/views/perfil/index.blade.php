@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("content")
 <div class="container little-margin-top">
-	<h1>Contacts</h1>
+	<h1>Perfil</h1>
 	        <table class="table">
 	            <tr>
 	                <th height="200" width="200">

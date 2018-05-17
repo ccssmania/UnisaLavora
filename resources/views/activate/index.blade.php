@@ -7,11 +7,11 @@
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>E-mail</th>
-					<th>Phone Number</th>
-					<th>Address</th>
-					<th>Action</th>
+					<th>@lang("project.name")</th>
+					<th>@lang("project.email")</th>
+					<th>@lan("project.phone_number)</th>
+					<th>@lang("project.address)</th>
+					<th>@lang("project.action)</th>
 				</tr>
 			</thead>
 			<tbody>

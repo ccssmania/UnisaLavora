@@ -81,12 +81,12 @@ class RegisterController extends Controller
                 $company->address = $data['address'];
                 $company->id = $data['dni'];
                 if($company->save()){
-                    Session::flash("message", "User Created");
+                    Session::flash("message", \Lang::get("project.user_created"));
                     $users = User::where('roll',0)->get();
-                    Notification::send($users, new UserActivate(["hola" => "hola", "como_Esta" => "como esta"]));
+                    Notification::send($users, new UserActivate());
                     return redirect("/home");
                 }else{
-                    Session::flash("errorMessage", "Something was wrong");
+                    Session::flash("errorMessage", \Lang::get('project.wrong'));
                     return redirect("/register");
                 }
             }elseif($data['roll'] == env("STUDENT")){
@@ -99,16 +99,16 @@ class RegisterController extends Controller
                 $student->id = $data['id'];
                 if($student->save()){
                     $users = User::where('roll',0)->get();
-                    Notification::send($users, new UserActivate("hola"));
-                    Session::flash("message", "User Created");
+                    Notification::send($users, new UserActivate());
+                    Session::flash("message", \Lang::get("project.user_created"));
                     return redirect("/home");
                 }else{
-                    Session::flash("errorMessage", "Something was wrong");
+                    Session::flash("errorMessage", \Lang::get("project.wrong"));
                     return redirect("/register");
                 }
             }
         }else{
-            Session::flash("errorMessage", "Something was wrong");
+            Session::flash("errorMessage", \Lang::get("project.wrong"));
             return redirect("/register");
         }
     }

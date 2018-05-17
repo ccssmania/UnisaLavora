@@ -11,7 +11,7 @@ class CheckActive
     public function handle($request, Closure $next, $guard = null)
     {
         if ((Auth::user()->active != 1)) {
-            Session::flash("errorMessage", "You have to wait for the activation");
+            Session::flash("errorMessage", \Lang::get("project.wait_activation"));
             return redirect('/home');
         }
 

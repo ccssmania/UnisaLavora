@@ -29,8 +29,8 @@ class ActivateController extends Controller
         $user = User::find($id);
         $user->active = 1;
         if($user->save()){
-            Session::flash("message", "User Activated!");
-            $user->notify(new ConfirmActivation("hola"));
+            Session::flash("message", \Lang::get("project.user_activated"));
+            $user->notify(new ConfirmActivation());
             return redirect("/activate");
         }
     }
@@ -40,14 +40,14 @@ class ActivateController extends Controller
         if($user->user->delete())
             if($user->delete()){
                 $user->delete();
-                Session::flash("message","User Ignored");
+                Session::flash("message",\Lang::get("project.user_ignored"));
                 return redirect("/activate");
             }else{
-                Session::flash("errorMessage","Something Was Wrong");
+                Session::flash("errorMessage",\Lang::get("project.wrong"));
                 return redirect("/activate");
             }
         else{
-            Session::flash("errorMessage","Something Was Wrong");
+            Session::flash("errorMessage",\Lang::get("project.wrong"));
             return redirect("/activate");
         }
     }

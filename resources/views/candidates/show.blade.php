@@ -8,7 +8,7 @@
 			<h4 class="card-title text-center">{{$user->user->name}}</h4>
 			<p class="card-text">{{$user->user->about ? $user->user->about : ''}}</p>
 		</div>
-		<p class="text-center">Skills</p>
+		<p class="text-center">@lang("project.skills") </p>
 		<ul class="list-group list-group-flush">
 			<li class="list-group-item">ID {{$user->id}}</li>
 			<li class="list-group-item">Dapibus ac facilisis in</li>

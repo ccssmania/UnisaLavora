@@ -18,7 +18,7 @@ class CheckAdministrator
     public function handle($request, Closure $next, $guard = null)
     {
         if ((Auth::user()->roll != 0)) {
-            Session::flash("errorMessage", "Only Administrators");
+            Session::flash("errorMessage", \Lang::get("project.only_administrators"));
             return redirect('/home');
         }
 
