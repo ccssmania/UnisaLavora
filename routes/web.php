@@ -11,7 +11,8 @@
 |
 */
 
-
+Route::post('/activate/{id}', 'ActivateController@activate');
+Route::post('/activate/ignore/{id}', 'ActivateController@ignore');
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 	Route::get("/language/{language}", function($language){
@@ -33,13 +34,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/activate', 'ActivateController@index');
-	Route::post('/activate/{id}', 'ActivateController@activate');
-	Route::post('/activate/ignore/{id}', 'ActivateController@ignore');
+	
 	Route::get('/perfil', 'PerfilController@index');
 	Route::get('/perfil/edit/{id}', 'PerfilController@edit');
 	Route::post('/perfil/edit/{id}', 'PerfilController@update');
 
-	Route::get('/notification/{type}/{id}', 'NotificationController@index');
+	Route::get('/notification/{type}/{id}', 'NotificationsController@index');
 
 	Route::get('/images/{filename}',function($filename){
 		$path = storage_path("app/images/$filename");

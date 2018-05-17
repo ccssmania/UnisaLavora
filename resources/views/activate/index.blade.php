@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("content")
 	<div class="big-padding text-center blue-grey white-text">
-		<h1>Candidates</h1>
+		<h1>@lang("project.candidates")</h1>
 	</div>
 	<div class="container">
 		<table class="table table-bordered table-striped">
@@ -9,9 +9,9 @@
 				<tr>
 					<th>@lang("project.name")</th>
 					<th>@lang("project.email")</th>
-					<th>@lan("project.phone_number)</th>
-					<th>@lang("project.address)</th>
-					<th>@lang("project.action)</th>
+					<th>@lang("project.phone_number")</th>
+					<th>@lang("project.address")</th>
+					<th>@lang("project.action")</th>
 				</tr>
 			</thead>
 			<tbody>

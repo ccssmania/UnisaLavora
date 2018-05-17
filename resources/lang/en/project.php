@@ -41,4 +41,5 @@ return [
     "only" => "Only",
     "change" => "Change",
     "logged" => "You are Logged!",
+    "candidates" => "Candidates",
 ];

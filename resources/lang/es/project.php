@@ -41,4 +41,5 @@ return [
     "only" => "Solo",
     "change" => "Cambiar",
     "logged" => "Has iniciado sesión satisfactoriamente",
+    "candidates" => "Candidatos",
 ];
