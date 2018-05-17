@@ -7658,4 +7658,23 @@ button.close {
   display: inline-block;
 }
 
+.fa-edit {
+  font-size: 2em;
+}
+
+.big-margin-top {
+  margin-top: 70px;
+}
+
+.big-margin-top {
+  margin-bottom: 100px;
+}
+
+.circle-notifications {
+  background-color: #37474f;
+  color: red;
+  border-radius: 50%;
+  padding: 1em;
+}
+
 /*# sourceMappingURL=app.css.map */

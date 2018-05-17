@@ -14,9 +14,10 @@ class CompanyTable extends Migration
     public function up()
     {
         Schema::create("company", function(Blueprint $table){
+            $table->string('id');
+            $table->primary('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->string('dni');
             $table->bigInteger('phone');
             $table->string('address');
             $table->foreign('user_id')->references('id')->on('users');

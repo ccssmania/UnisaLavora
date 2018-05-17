@@ -33,6 +33,6 @@ class User extends Authenticatable
         if($this->roll == env("STUDENT"))
             return $this->hasOne('App\Student');
         if($this->roll == env("ADMINISTRATOR"))
-            return $this->hasOne('App\Student');
+            return $this->hasOne('App\Administrator');
     }
 }

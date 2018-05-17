@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Notifications\ConfirmActivation;
+use App\Notifications\UserActivate;
 class RegisterController extends Controller
 {
     /*
@@ -78,11 +79,11 @@ class RegisterController extends Controller
                 $company->phone = $data['phone'];
                 $company->user_id = $user->id;
                 $company->address = $data['address'];
-                $company->dni = $data['dni'];
+                $company->id = $data['dni'];
                 if($company->save()){
                     Session::flash("message", "User Created");
                     $users = User::where('roll',0)->get();
-                    Notification::send($users, new UserActivate("hola"));
+                    Notification::send($users, new UserActivate(["hola" => "hola", "como_Esta" => "como esta"]));
                     return redirect("/home");
                 }else{
                     Session::flash("errorMessage", "Something was wrong");

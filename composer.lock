@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bd49bc4373d705bda11c96d05b70e62",
+    "content-hash": "2ccc3062a60f5fe1e7e1d94eea0ee684",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -334,6 +334,129 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "intervention/image",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/3603dbcc9a17d307533473246a6c58c31cf17919",
+                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "^4.8 || ^5.7"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Image": "Intervention\\Image\\Facades\\Image"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.com",
+                    "homepage": "http://olivervogel.com/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2017-09-21T16:29:17+00:00"
+        },
+        {
+            "name": "intervention/imagecache",
+            "version": "2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/imagecache.git",
+                "reference": "7936b90e695daee1aafbd25221815352ef97bcbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/imagecache/zipball/7936b90e695daee1aafbd25221815352ef97bcbc",
+                "reference": "7936b90e695daee1aafbd25221815352ef97bcbc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~4|~5",
+                "illuminate/filesystem": "~4|~5",
+                "intervention/image": "dev-master|~2,>=2.2.0",
+                "jeremeamia/superclosure": "~1|~2",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Caching extension for the Intervention Image Class",
+            "homepage": "http://image.intervention.io",
+            "keywords": [
+                "cache",
+                "gd",
+                "image",
+                "imagick",
+                "laravel"
+            ],
+            "time": "2015-09-22T15:22:47+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -419,6 +542,64 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jeremeamia/SuperClosure",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremeamia/super_closure.git",
+                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
+                "reference": "5707d5821b30b9a07acfb4d76949784aaa0e9ce9",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^1.2|^2.0|^3.0|^4.0",
+                "php": ">=5.4",
+                "symfony/polyfill-php56": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SuperClosure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Serialize Closure objects, including their context and binding",
+            "homepage": "https://github.com/jeremeamia/super_closure",
+            "keywords": [
+                "closure",
+                "function",
+                "lambda",
+                "parser",
+                "serializable",
+                "serialize",
+                "tokenizer"
+            ],
+            "time": "2018-03-21T22:21:57+00:00"
         },
         {
             "name": "laravel/framework",
@@ -695,6 +876,65 @@
                 "storage"
             ],
             "time": "2018-05-07T08:44:23+00:00"
+        },
+        {
+            "name": "mcamara/laravel-localization",
+            "version": "v1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mcamara/laravel-localization.git",
+                "reference": "5f7e0e646d5c2374b8adaf1757599e043cd0994d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/5f7e0e646d5c2374b8adaf1757599e043cd0994d",
+                "reference": "5f7e0e646d5c2374b8adaf1757599e043cd0994d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.2, ~5.3, ~5.4",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench-browser-kit": "~3.4",
+                "phpunit/phpunit": "5.4.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelLocalization": "Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [],
+                "psr-0": {
+                    "Mcamara\\LaravelLocalization": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Cámara",
+                    "email": "mcamara88@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy localization for Laravel",
+            "homepage": "https://github.com/mcamara/laravel-localization",
+            "keywords": [
+                "laravel",
+                "localization",
+                "php"
+            ],
+            "time": "2017-08-08T04:41:28+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1760,6 +2000,62 @@
             "time": "2018-04-26T10:06:28+00:00"
         },
         {
+            "name": "symfony/polyfill-php56",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php56.git",
+                "reference": "af98553c84912459db3f636329567809d639a8f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/af98553c84912459db3f636329567809d639a8f6",
+                "reference": "af98553c84912459db3f636329567809d639a8f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/polyfill-util": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php56\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 5.6+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-04-26T10:06:28+00:00"
+        },
+        {
             "name": "symfony/polyfill-php70",
             "version": "v1.8.0",
             "source": {
@@ -1814,6 +2110,58 @@
                 "compatibility",
                 "polyfill",
                 "portable",
+                "shim"
+            ],
+            "time": "2018-04-26T10:06:28+00:00"
+        },
+        {
+            "name": "symfony/polyfill-util",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-util.git",
+                "reference": "1a5ad95d9436cbff3296034fe9f8d586dce3fb3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/1a5ad95d9436cbff3296034fe9f8d586dce3fb3a",
+                "reference": "1a5ad95d9436cbff3296034fe9f8d586dce3fb3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Util\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony utilities for portability of PHP codes",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compat",
+                "compatibility",
+                "polyfill",
                 "shim"
             ],
             "time": "2018-04-26T10:06:28+00:00"
@@ -2081,6 +2429,68 @@
                 "dump"
             ],
             "time": "2018-04-26T12:42:15+00:00"
+        },
+        {
+            "name": "themsaid/laravel-langman",
+            "version": "v1.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/themsaid/laravel-langman.git",
+                "reference": "27cdaa7eca53a0fe7a54c413285de6112f3166de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/themsaid/laravel-langman/zipball/27cdaa7eca53a0fe7a54c413285de6112f3166de",
+                "reference": "27cdaa7eca53a0fe7a54c413285de6112f3166de",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.1",
+                "illuminate/filesystem": "~5.1",
+                "illuminate/support": "~5.1",
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.4",
+                "orchestra/database": "~3.0",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Themsaid\\Langman\\LangmanServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Themsaid\\Langman\\": "src"
+                },
+                "classmap": [
+                    "tests"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Said",
+                    "email": "theMohamedSaid@gmail.com",
+                    "homepage": "https://themsaid.github.io"
+                }
+            ],
+            "description": "Manage language files with ease.",
+            "homepage": "https://github.com/themsaid/laravel-langman",
+            "keywords": [
+                "laravel",
+                "localization",
+                "multilingual"
+            ],
+            "time": "2017-08-06T15:02:00+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

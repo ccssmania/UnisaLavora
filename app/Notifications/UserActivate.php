@@ -16,9 +16,9 @@ class UserActivate extends Notification
      *
      * @return void
      */
+    protected $data;
     public function __construct()
     {
-        //
     }
 
     /**
@@ -44,7 +44,7 @@ class UserActivate extends Notification
 
         return (new MailMessage)
                     ->greeting('Hello!')
-                    ->line('There are candidates has been activated!')
+                    ->line('There are candidates hto activate!')
                     ->action('View Candidates', $url)
                     ->line('Thank you for using our application!');
     }
@@ -60,6 +60,8 @@ class UserActivate extends Notification
         return [
             'user_id' => $notifiable->id,
             'type' => 'user_activate',
+            'name' => 'Activate Users',
+            'description' => 'There are candidates hto activate!',
         ];
     }
 }

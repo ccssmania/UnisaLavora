@@ -43,14 +43,14 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Phone Number</label>
                             <div class="col-md-6">
-                                <input type="number" class="form-control" name="phone">
+                                <input type="number" class="form-control" value="{{ old('phone') }}" name="phone">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Address</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="address">
+                                <input type="text" class="form-control" value="{{ old('address') }}" name="address">
                             </div>
                         </div>
 

@@ -23,7 +23,7 @@
 						<td> {{$user->user ? $user->user->address : ''}} </td>
 						<td >
 							@include('activate.activate',['url' =>'/activate/'.$user->id])
-							@include('activate.ignore',['url' =>'/activate/ignore'.$user->id])
+							@include('activate.ignore',['url' =>'/activate/ignore/'.$user->id])
 						</td>
 					</tr>
 				@endforeach

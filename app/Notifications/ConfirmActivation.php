@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\DatabaseNotification;
 
 class ConfirmActivation extends Notification
 {
@@ -40,6 +41,7 @@ class ConfirmActivation extends Notification
      */
     public function toMail($notifiable)
     {
+        
         return (new MailMessage)
                     ->line('Your account has been activated')
                     ->action('Login', url('/login'))
@@ -55,7 +57,9 @@ class ConfirmActivation extends Notification
     public function toArray($notifiable)
     {
         return [
-            'type' => 'comfirm_activate',
+            'type' => 'confirm_activate',
+            'name'  => 'Activation Confirmated',
+            'description' => 'Your account has been activated',
         ];
     }
 }

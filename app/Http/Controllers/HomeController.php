@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -21,5 +22,24 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function home(){
+        $user = Auth::user();
+        if(isset($user)){
+            if($user->roll == env("COMPANY")){
+                $users = User::where('roll',env("STUDENT"))->where('active', 1)->paginate(20);
+                return view('welcome', compact("users"));
+            }elseif($user->roll == env("STUDENT")){
+                $users = User::where('roll',env("Company"))->where('active', 1)->paginate(20);
+                return view('welcome', compact("users"));
+            }elseif($user->roll == env("ADMINISTRATOR")){
+                $users = User::paginate(20);
+                return view('welcome', compact("users"));
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect("/home");
+        }
     }
 }

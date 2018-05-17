@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-info">
+            <div class="panel panel-{{Auth::guest()? 'danger' : 'info'}}">
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
@@ -13,8 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Please wait for the activation account!
+                    @if (!Auth::guest())
+                        @if(Auth::user()->active != 1)
+                            Please wait for the activation account!
+                        @else
+                            You are Logged!
+                        @endif
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @endif
                 </div>
             </div>
         </div>

@@ -39,6 +39,7 @@ class ActivateController extends Controller
         $user = User::find($id);
         if($user->user->delete())
             if($user->delete()){
+                $user->delete();
                 Session::flash("message","User Ignored");
                 return redirect("/activate");
             }else{
