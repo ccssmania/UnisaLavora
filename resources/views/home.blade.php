@@ -20,7 +20,7 @@
                             @lang("project.logged")
                         @endif
                     @else
-                        <li><a href="{{ route('login') }}">@lang("project.login") </a></li>
+                        <li><a href="{{ route('login') }}">@lang("general.login.login") </a></li>
                         <li><a href="{{ route('register') }}">@lang("project.register") </a></li>
                     @endif
                 </div>
