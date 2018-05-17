@@ -32,7 +32,7 @@ return [
     "action" => "Action",
     "user_type" => "User Type",
     "reset" => "Reset",
-    "send_p_l" => "Send Password Reset Link";
+    "send_p_l" => "Send Password Reset Link",
     "skills" => "Skills",
     "notification" => "Notification",
     "description" => "Description",
