@@ -68,7 +68,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-eval("//Register\n\nfunction company_student($obj){\n\tconsole.log($obj);\n}//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbIi8vUmVnaXN0ZXJcblxuZnVuY3Rpb24gY29tcGFueV9zdHVkZW50KCRvYmope1xuXHRjb25zb2xlLmxvZygkb2JqKTtcbn1cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gcmVzb3VyY2VzL2Fzc2V0cy9qcy9hcHAuanMiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==");
+eval("//Register\n\nfunction company_student($obj){\n\tconsole.log($obj);\n}\n\nfunction registerIdError(obj){\n\tif(obj == \"id\"){\n\t\t$(\"#student_label\").show();\n\t\t$(\"#student_div\").show();\n\t}else if(obj == \"dni\"){\n\t\t$(\"#company_label\").show();\n\t\t$(\"#company_div\").show();\n\t}\n}//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbIi8vUmVnaXN0ZXJcblxuZnVuY3Rpb24gY29tcGFueV9zdHVkZW50KCRvYmope1xuXHRjb25zb2xlLmxvZygkb2JqKTtcbn1cblxuZnVuY3Rpb24gcmVnaXN0ZXJJZEVycm9yKG9iail7XG5cdGlmKG9iaiA9PSBcImlkXCIpe1xuXHRcdCQoXCIjc3R1ZGVudF9sYWJlbFwiKS5zaG93KCk7XG5cdFx0JChcIiNzdHVkZW50X2RpdlwiKS5zaG93KCk7XG5cdH1lbHNlIGlmKG9iaiA9PSBcImRuaVwiKXtcblx0XHQkKFwiI2NvbXBhbnlfbGFiZWxcIikuc2hvdygpO1xuXHRcdCQoXCIjY29tcGFueV9kaXZcIikuc2hvdygpO1xuXHR9XG59XG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIHJlc291cmNlcy9hc3NldHMvanMvYXBwLmpzIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }
 /******/ ]);

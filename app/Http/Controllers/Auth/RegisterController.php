@@ -51,11 +51,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+        if(isset($data['id'])){
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed',
+                'id' => 'required|unique:student',
+            ]);
+        }elseif(isset($data['dni'])){
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed',
+                'dni' => 'required|unique:company,id',
+            ]);
+        }
     }
 
     /**
@@ -86,6 +96,7 @@ class RegisterController extends Controller
                     Notification::send($users, new UserActivate());
                     return redirect("/home");
                 }else{
+                    $user->delete();
                     Session::flash("errorMessage", \Lang::get('project.wrong'));
                     return redirect("/register");
                 }
@@ -103,6 +114,7 @@ class RegisterController extends Controller
                     Session::flash("message", \Lang::get("project.user_created"));
                     return redirect("/home");
                 }else{
+                    $user->delete();
                     Session::flash("errorMessage", \Lang::get("project.wrong"));
                     return redirect("/register");
                 }

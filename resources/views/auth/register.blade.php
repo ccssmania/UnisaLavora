@@ -89,8 +89,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group" id="users_rolls">
-                            
+                        <div class="form-group{{ $errors->has('id') || $errors->has('dni') ? ' has-error' : '' }}" id="users_rolls">
+
+                            <label  class="col-md-4 control-label" id="student_label" style="display: {{ ($errors->has('id') || $errors->has('dni')) && old('id') ? '' : 'none' }};">@lang("project.student") ID</label>
+                            <div class="col-md-6 " id="student_div" style="display:{{ ($errors->has('id') || $errors->has('dni'))  && old('id') ? '' : 'none' }};"> 
+                                <input type="text" class="form-control" id="id" name="id" required>
+                                @if ($errors->has('id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <label  class="col-md-4 control-label" id="company_label" style="display: {{ ($errors->has('id') || $errors->has('dni'))  && old('dni') ? '' : 'none' }};">@lang("project.company") DNI</label>
+                            <div class="col-md-6 " id="company_div" style="display: {{ ($errors->has('id') || $errors->has('dni'))  && old('dni')  ? '' : 'none' }};">
+                                <input type="text" class="form-control" id="dni" name="dni" required>
+                                @if ($errors->has('dni'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('dni') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -105,4 +123,5 @@
         </div>
     </div>
 </div>
+
 @endsection

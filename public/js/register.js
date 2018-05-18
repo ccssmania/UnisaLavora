@@ -1,20 +1,33 @@
-//student
 
+$(document).ready(function(){
+	console.log($("#id"),$("#dni"))
+	$("#id").removeAttr('required');
+	$("#dni").removeAttr('required');
+});
 function student_company(){
+
 	if($("#select option:selected").val() == 2)
 	{
-		var div = $("#users_rolls");
-		div.empty();
-		var label = $('<label  class="col-md-4 control-label">@lang("project.student") ID</label>');
-		var div2 = $('<div class="col-md-6 "> <input type="text" class="form-control" name="id" required> </div>');
-		div.append(label);
-		div.append(div2);
+		
+		$("#company_label").hide();
+		$("#company_div").hide();
+		$("#student_label").show();
+		$("#student_div").show();
+		$("#id").prop('required', true);
 	}else if($("#select option:selected").val() == 1){
-		var div = $("#users_rolls");
-		div.empty();
-		var label = $('<label  class="col-md-4 control-label">@lang("project.company") DNI</label>');
-		var div2 = $('<div class="col-md-6 "> <input type="text" class="form-control" name="dni" required> </div>');
-		div.append(label);
-		div.append(div2);
+		$("#company_label").show();
+		$("#company_div").show();
+		$("#student_label").hide();
+		$("#student_div").hide();
+		$("#dni").prop('required', true);
+	}
+}
+function registerIdError(obj){
+	if(obj == "id"){
+		$("#student_label").show();
+		$("#student_div").show();
+	}else if(obj == "dni"){
+		$("#company_label").show();
+		$("#company_div").show();
 	}
 }
