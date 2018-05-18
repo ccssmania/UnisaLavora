@@ -81,10 +81,16 @@
                             <label for="password-confirm" class="col-md-4 control-label">@lang("project.user_type")</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="roll" required="" id="select" onchange="student_company();">
-                                    <option value="" disabled selected>Select One</option>
-                                    <option value="1">@lang("project.company")</option>
-                                    <option value="2">@lang("project.student")</option>
+                                <select class="form-control" name="roll" required id="select" onchange="student_company();">
+                                    <option value="" disabled {{old('roll') ? '' : 'selected'}}>Select One</option>
+                                    @php
+                                        $oldSelected = old('roll') ? old('roll') : '';
+                                        for($i = 1; $i<=2; $i++){
+                                            $selected = $oldSelected == $i ? $i : '';
+                                        }
+                                    @endphp
+                                    <option value="1" {{$selected == 1 ? 'selected' : ''}} >@lang("project.company")</option>
+                                    <option value="2" {{$selected == 2 ? 'selected' : ''}}>@lang("project.student")</option>
                                 </select>
                             </div>
                         </div>
