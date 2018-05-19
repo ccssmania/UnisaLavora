@@ -9,20 +9,20 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{url('AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url('AdminLTE/bower_components/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url('bower_components/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{url('AdminLTE/bower_components/Ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{url('bower_components/Ionicons/css/ionicons.min.css')}}">
       <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('AdminLTE/dist/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{url('dist/css/AdminLTE.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/bootstrap-notifications.min.css')}}">
     <link rel="stylesheet" href="{{url('laravel.css')}}">
       <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
             page. However, you can choose any other skin. Make sure you
             apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="{{url('AdminLTE/dist/css/skins/skin-black.min.css')}}">
-    <link rel="stylesheet" href="{{url('AdminLTE/dist/css/skins/skin-blue.min.css')}}">
+    <link rel="stylesheet" href="{{url('dist/css/skins/skin-black.min.css')}}">
+    <link rel="stylesheet" href="{{url('dist/css/skins/skin-blue.min.css')}}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
