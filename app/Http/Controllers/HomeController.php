@@ -28,13 +28,13 @@ class HomeController extends Controller
         if(isset($user)){
             if($user->roll == env("COMPANY")){
                 $users = User::where('roll',env("STUDENT"))->where('active', 1)->paginate(20);
-                return view('welcome', compact("users"));
+                return view('main.main', compact("users"));
             }elseif($user->roll == env("STUDENT")){
                 $users = User::where('roll',env("Company"))->where('active', 1)->paginate(20);
-                return view('welcome', compact("users"));
+                return view('main.main', compact("users"));
             }elseif($user->roll == env("ADMINISTRATOR")){
                 $users = User::paginate(20);
-                return view('welcome', compact("users"));
+                return view('main.main', compact("users"));
             }else{
                 return redirect('/home');
             }

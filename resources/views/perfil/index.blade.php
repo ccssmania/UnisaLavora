@@ -25,7 +25,7 @@
 		                    	@endif
 		                    @endif
 	                	</div>
-	                	<div class="col-md-6 text-right">
+	                	<div class="col-md-6 text-left">
 	                		<a href="{{url('/perfil/edit/'.$user->id)}}"><i class="fa fa-edit"></i></a>
 	                	</div>
 	                </th>

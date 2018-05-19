@@ -3,10 +3,10 @@
         <div class="col-md-10 col-md-offset-1 big-margin-bot">
             <div class="panel panel-default big-margin-bot">
                 <div class="panel-heading">Perfil</div>
-				<form class="form-horizontal" method="{{$method}}" action="{{$url}}" enctype="multipart/form-data">
+				<form class="form-horizontal big-margin-top" method="{{$method}}" action="{{$url}}" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					
-						<div class="form-group big-margin-top">
+						<div class="form-group ">
 							<label class="col-md-4 control-label">@lang("project.name") </label>
 							<div class="col-md-6">
 								<input type="text" name="name" placeholder="{{$user->user->name ? $user->user->name : 'Name'}}" class="form-control">

@@ -46,7 +46,7 @@ class UserActivate extends Notification
                     ->greeting(\Lang::get("project.hello"))
                     ->line(\Lang::get("project.user_activate"))
                     ->action('View Candidates', $url)
-                    ->line(\Lang::get("project.app_tanks"));
+                    ->line(\Lang::get("project.app_thanks"));
     }
 
     /**

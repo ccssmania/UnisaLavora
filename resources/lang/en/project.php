@@ -25,7 +25,7 @@ return [
     "app_thanks" => "Thank you for using our application!",
     "confirm_subject" => "Activation confirmed!",
     "hello" => "Hello",
-    "user_activate" => "There are candidates hto activate!",
+    "user_activate" => "There are candidates to activate!",
     "au" => "Usr Activate!",
     "student" => "Student",
     "company" => "Company",
