@@ -9,7 +9,7 @@
                         @if(Auth::user()->roll == 0)
                             <img src="{{url('images/small/perfil.png')}}" class="img-circle" alt="User Image" />
                         @else
-                            <img src="{{url('images/small/$user->id.jpg')}}" class="img-circle" alt="User Image" />
+                            <img src="{{url('images/small/$user->id.jpg')}}" onerror="this.src='{{url('images/small/perfil.png')}}';" class="img-circle" alt="User Image" />
                         @endif
                     </div>
                     <div class="pull-left info">
