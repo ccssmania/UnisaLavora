@@ -14,6 +14,10 @@
 Route::post('/activate/{id}', 'ActivateController@activate');
 Route::post('/activate/ignore/{id}', 'ActivateController@ignore');
 Route::post('/perfil/edit/{id}', 'PerfilController@update');
+Route::post('/perfil/deleteSkill/{exp_id}', 'PerfilController@deleteSkill');
+Route::post('/oferts/{id}', 'OfertaController@delete');
+Route::post('/oferts/create/{user_id}', 'OfertaController@save');
+Route::post('/oferts/edit/{user_id}/{ofert_id}', 'OfertaController@update');
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 	Route::get("/language/{language}", function($language){
@@ -39,7 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	Route::get('/perfil', 'PerfilController@index');
 	Route::get('/perfil/edit/{id}', 'PerfilController@edit');
 	
-
+	Route::get('/oferts/{id}', 'OfertaController@index');
+	Route::get('/oferts/{user_id}/{ofert_id}/edit', 'OfertaController@edit');
+	Route::get('/oferts/create/{user_id}', 'OfertaController@create');
 	Route::get('/notification/{type}/{id}', 'NotificationsController@index');
 
 	Route::get('/images/{filename}',function($filename){
@@ -59,9 +65,33 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 		$path = storage_path("app/cvs/$filename");
 
 
-		if(!\File::exists($path)) {
-			return redirect('/perfil');
-		}
+		if(!\File::exists($path)) abort(404);
+		$file = \File::get($path);
+		$type = \File::mimeType($path);
+
+		$response = Response::make($file,200);
+		$response->header("Content-Type", $type);
+
+		return $response;
+	});
+	Route::get('/exp/{filename}',function($filename){
+		$path = storage_path("app/exp/$filename");
+
+
+		if(!\File::exists($path)) abort(404);
+		$file = \File::get($path);
+		$type = \File::mimeType($path);
+
+		$response = Response::make($file,200);
+		$response->header("Content-Type", $type);
+
+		return $response;
+	});
+	Route::get('/ofr/{filename}',function($filename){
+		$path = storage_path("app/ofr/$filename");
+
+
+		if(!\File::exists($path)) abort(404);
 		$file = \File::get($path);
 		$type = \File::mimeType($path);
 

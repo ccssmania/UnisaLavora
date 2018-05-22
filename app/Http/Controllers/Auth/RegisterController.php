@@ -56,14 +56,14 @@ class RegisterController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
-                'id' => 'required|unique:student',
+                'id' => 'integer|required|unique:student',
             ]);
         }elseif(isset($data['dni'])){
             return Validator::make($data, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
-                'dni' => 'required|unique:company,id',
+                'dni' => 'string|required|unique:company,id',
             ]);
         }
     }

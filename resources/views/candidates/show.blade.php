@@ -1,17 +1,16 @@
 <div class="col-md-4 ">
-	<div class="box box-solid box-primary" style="width: 25rem; min-height: 450px; max-height: 450px;">
+	<div class="box box-solid box-{{$user->active == 0 ? 'danger' : 'primary'}}" style="width: 25rem; min-height: 450px; max-height: 450px;">
 		<div class="box-header"> {{$user->user->name}} </div>
 		<div class="text-center">
 			
 			<img class="card-img-top " style="margin-top: 15px; " src="{{url('/images/small/'.$user->id.'.jpg')}}" onerror="this.src='{{url("/images/small/perfil.png")}}'" alt="Card image cap">
 		</div>
 		<div class="box-body">
-			<h4 class="box-title text-center">{{$user->user->name}}</h4>
+			<h4 class="box-title text-center">@if($user->roll == env("COMPANY"))<a href=" {{url('/oferts/'.$user->id)}} ">{{$user->user->name}}</a>@else {{$user->user->name}}@endif</h4>
 			<p class="box-text">{{$user->user->about ? $user->user->about : ''}}</p>
 		</div>
 		<p class="text-center">@lang("project.skills") </p>
 		<ul class="list-group list-group-flush">
-			<li class="list-group-item">ID {{$user->id}}</li>
 			<li class="list-group-item">Dapibus ac facilisis in</li>
 			<li class="list-group-item">Vestibulum at eros</li>
 		</ul>

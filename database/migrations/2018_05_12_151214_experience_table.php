@@ -14,8 +14,10 @@ class ExperienceTable extends Migration
     public function up()
     {
         Schema::create("experience", function(Blueprint $table){
+            $table->increments('id');
             $table->integer('student_id')->unsigned();
-            $table->text('description');
+            $table->string('skill_name');
+            $table->string('file_ext')->nullable();
             $table->foreign('student_id')->references('id')->on('student');
         });
     }

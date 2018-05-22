@@ -30,10 +30,10 @@ class HomeController extends Controller
                 $users = User::where('roll',env("STUDENT"))->where('active', 1)->paginate(20);
                 return view('main.main', compact("users"));
             }elseif($user->roll == env("STUDENT")){
-                $users = User::where('roll',env("Company"))->where('active', 1)->paginate(20);
+                $users = User::where('roll',env("COMPANY"))->where('active', 1)->paginate(20);
                 return view('main.main', compact("users"));
             }elseif($user->roll == env("ADMINISTRATOR")){
-                $users = User::paginate(20);
+                $users = User::where('roll','!=',0)->paginate(20);
                 return view('main.main', compact("users"));
             }else{
                 return redirect('/home');

@@ -1,5 +1,7 @@
 //Register
-
+$(document).ready(function(){
+	$(".textarea").summernote();
+});
 function company_student($obj){
 	console.log($obj);
 }

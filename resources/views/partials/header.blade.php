@@ -5,7 +5,7 @@
             <a href="{{url('/')}}" class="logo"><b> {{config('app.name', 'Laravel')}} </b></a>
 
             <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top" role="navigation">
+            <nav class="navbar navbar-fixed-top"  role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -27,11 +27,11 @@
                                         
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Notifications <span class=""> <i data-count="{{$unread}}" class="glyphicon glyphicon-bell notification-icon"></i> </span>
+                                    Notifications <span > <i data-count="{{$unread}}" class="glyphicon glyphicon-bell notification-icon"></i> </span><span class="caret"> </span>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-alerts"  role="menu">
-                                    <li class="dropdown-header " > Notifications <span class="text-red"> {{$unread}}</span></li>
+                                    <li class="dropdown-header " > Notifications <span class="text-red"> {{$unread}}</span> </li>
                                     <li class="divider"></li>
                                     @if(isset($notifications))
                                         @foreach($notifications as $notification)
@@ -57,10 +57,10 @@
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <span>{{ Auth::user()->user->name }} </span>
+                                    {{ Auth::user()->user->name }}<span class="caret"> </span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu " role="menu">
                                     <li><a href="{{url('/perfil')}}">Perfil</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -78,7 +78,7 @@
                         @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                                @lang('project.language') 
+                                @lang('project.language')<span class="caret"> </span> 
                             </a>
                             <ul class="dropdown-menu "  role="menu">
                                 <li>
