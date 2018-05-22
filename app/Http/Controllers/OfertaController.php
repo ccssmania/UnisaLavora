@@ -20,6 +20,11 @@ class OfertaController extends Controller
     public function index($id){
     	$company = User::find($id)->user;
     	$ofertas = $company->ofertas()->where('status',1)->paginate(20);
+        $user = \Auth::user();
+        if($user->roll == env("STUDENT")){
+            dd($user->notifications()->where('data->type', 'confirm_activate')->get());
+
+        }
     	return view('ofertas.index',compact("ofertas", "company"));
     }
     public function create($user_id){
