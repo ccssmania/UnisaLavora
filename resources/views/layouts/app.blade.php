@@ -13,20 +13,34 @@
     <!-- Styles -->
     @include("partials.head")
 </head>
-<body class="skin-blue">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!--Header -->
         @include("partials.header")
         @include("partials.sidbar")
-        <div class="content-wrapper body">
-            @if(Session::has('message'))
-            <p class="alert alert-success">{!! Session::get('message') !!}</p>
-            @endif
+        <div class="content-wrapper body" style="margin-top: 50px">
+            <section class="content-header">
+                @if(Session::has('message'))
+                    <p class="alert alert-success">{!! Session::get('message') !!}</p>
+                @endif
 
-            @if(Session::has('errorMessage'))
-            <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('errorMessage') }}</p>
-            @endif
-            @yield('content')
+                @if(Session::has('errorMessage'))
+                    <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('errorMessage') }}</p>
+                @endif
+                <h1>
+                    @yield('header_title')
+                    <small>@yield('header_description')</small>
+                </h1>
+               <!-- <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                    <li class="active">Here</li>
+                </ol>-->
+            </section>
+
+            <!-- Main content -->
+            <section class="content container-fluid">
+                @yield('content')
+            </section>
         </div>
         <footer class="main-footer">
             <!-- To the right -->

@@ -1,6 +1,6 @@
-<div class="container">
+<div class="">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1 big-margin-bot">
+        <div class="col-md-10 big-margin-bot little-margin-left">
             <div class="panel panel-default big-margin-bot">
                 <div class="panel-heading">Perfil</div>
 				<form class="form-horizontal big-margin-top" method="{{$method}}" action="{{$url}}" enctype="multipart/form-data">
@@ -99,6 +99,33 @@
 							       
 							            <tr><th></th><th></th></tr>
 							        </table>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4">@lang('project.experience')</label>
+								<div class="col-md-6 experiences border" id="experiences_fix" style="display: {{count($user->user->experience) > 0 ? '' : 'none'}};">
+									@if(isset($user->user->experience))
+										@foreach($user->user->experience as $experience)
+											<div class="col-md-8" id="exp_name{{$experience->id}}">
+												<input type="text" disabled name="" value="{{$experience->skill_name}}">
+											</div>
+											<div class="col-md-2 text-left" id="exp_file{{$experience->id}}">
+												@if(file_exists(storage_path('app/exp/'.$experience->skill_name.'_'.$user->id.'.'.$experience->file_ext)))
+							                    	<a target="_blank" href="{{url('/exp/'.$experience->skill_name.'_'.$user->id.'.'.$experience->file_ext)}}">{{$experience->skill_name}}</a>
+							                    @endif
+											</div>
+											<div class="col-md-2">
+												@include('perfil.deleteSkill',['method' => 'POST', 'url' => url("/perfil/deleteSkill/$experience->id")])
+											</div>
+										@endforeach
+									@endif
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-4">@lang('project.ae')</label>
+								<div class="col-md-6 text-center">
+									<button class="btn btn-primary" type="button" onclick="addSkill()"><i class="fa fa-plus"></i></button>
 								</div>
 							</div>
 						@endif
@@ -137,3 +164,4 @@
         </div>
     </div>
 </div>
+

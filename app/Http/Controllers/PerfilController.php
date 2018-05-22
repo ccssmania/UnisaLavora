@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Notifications\ConfirmActivation;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Route;
+use App\Experience;
 class PerfilController extends Controller
 {
 	public function __construct()
@@ -34,6 +35,7 @@ class PerfilController extends Controller
     {
         ini_set('memory_limit','256M');
 
+
         $user = User::find($id);
         $user_sc = $user->user;
         if(isset($request->file)){
@@ -42,7 +44,22 @@ class PerfilController extends Controller
             ]);
             $image = Image::make($request->file)->encode('jpg')->save(storage_path('app/images/'.$user->id.'.jpg'));
         }
-
+        if(isset($request->skills_name)){
+            for($i = 0; $i<count($request->skills_name) ; $i++){
+                if(isset($request->skills_name[$i])){
+                    $experience = new Experience();
+                    $experience->student_id = $user->user->id;
+                    $experience->skill_name = $request->skills_name[$i];
+                    if(isset($request->skills_file[$i])){
+                        $experience->file_ext = $request->skills_file[$i]->extension();
+                        $request->skills_file[$i]->storeAs('exp',$experience->skill_name.'_'.$user->id.'.'.$experience->file_ext);
+                        $experience->save();
+                    }else{
+                        $experience->save();
+                    }
+                }
+            }
+        }
         if(isset($request->namespace))
             $user_sc->name = $request->name;
         if(isset($user->address))
@@ -93,5 +110,9 @@ class PerfilController extends Controller
         }
 
 
+    }
+
+    public function deleteSkill($exp_id){
+        Experience::find($exp_id)->delete();
     }
 }
