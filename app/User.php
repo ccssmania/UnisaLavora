@@ -35,4 +35,8 @@ class User extends Authenticatable
         if($this->roll == env("ADMINISTRATOR"))
             return $this->hasOne('App\Administrator');
     }
+
+    public function ofertas(){
+        return $this->belongsToMany('App\Oferta', ' in_entrevista_request', 'user_id', 'oferta_id');
+    }
 }

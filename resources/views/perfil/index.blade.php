@@ -19,7 +19,7 @@
 		                    	@else
 		                    		<div class="has-error">
 		                    			<span class="help-block">
-	                                        <strong>CV : does not found</strong>
+	                                        <strong>CV : @lang('project.dnf')</strong>
 	                                    </span>
 		                    		</div>
 		                    	@endif

@@ -16,4 +16,4 @@
 	<!-- AdminLTE App -->
 	<script src="{{url('/dist/js/adminlte.min.js')}}"></script>
  	<script src="{{url('js/perfil.js')}}"></script>
-	
+	<script src="{{url('js/apply.js')}}"></script>

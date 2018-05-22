@@ -18,6 +18,9 @@ Route::post('/perfil/deleteSkill/{exp_id}', 'PerfilController@deleteSkill');
 Route::post('/oferts/{id}', 'OfertaController@delete');
 Route::post('/oferts/create/{user_id}', 'OfertaController@save');
 Route::post('/oferts/edit/{user_id}/{ofert_id}', 'OfertaController@update');
+Route::post('/apply/add/{oferta_id}/{user_id}', 'OfertaController@apply');
+Route::post('/apply/delete/{oferta_id}/{user_id}', 'OfertaController@delete_apply');
+
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 	Route::get("/language/{language}", function($language){
@@ -44,8 +47,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	Route::get('/perfil/edit/{id}', 'PerfilController@edit');
 	
 	Route::get('/oferts/{id}', 'OfertaController@index');
+	Route::get('/ofert/{id}', 'OfertaController@show');
 	Route::get('/oferts/{user_id}/{ofert_id}/edit', 'OfertaController@edit');
 	Route::get('/oferts/create/{user_id}', 'OfertaController@create');
+	Route::get('/interview/{id}', 'OfertaController@interview');
 	Route::get('/notification/{type}/{id}', 'NotificationsController@index');
 
 	Route::get('/images/{filename}',function($filename){

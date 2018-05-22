@@ -8,6 +8,13 @@ use App\User;
 use App\Oferta;
 use Session;
 use Validator;
+use App\InEntrevistaRequest;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\CancelInterviewRequest;
+use App\Notifications\CancelInterviewRequestStudent;
+use App\Notifications\InterviewRequest;
+use App\Notifications\InterviewRequestStudent;
+
 class OfertaController extends Controller
 {
 
@@ -20,11 +27,6 @@ class OfertaController extends Controller
     public function index($id){
     	$company = User::find($id)->user;
     	$ofertas = $company->ofertas()->where('status',1)->paginate(20);
-        $user = \Auth::user();
-        if($user->roll == env("STUDENT")){
-            dd($user->notifications()->where('data->type', 'confirm_activate')->get());
-
-        }
     	return view('ofertas.index',compact("ofertas", "company"));
     }
     public function create($user_id){
@@ -122,6 +124,45 @@ class OfertaController extends Controller
     		Session::flash('message',\Lang::get('project.updated'));
     		return redirect("/oferts/$user->id");
     	}
+    }
+
+
+    public function apply($oferta_id, $user_id){
+        if(\Auth::user()->id == $user_id){
+            $in_entrevista_request = new InEntrevistaRequest();
+            $in_entrevista_request->user_id = $user_id;
+            $in_entrevista_request->oferta_id = $oferta_id;
+            if($in_entrevista_request->save()){
+                $user = User::find($user_id);
+                $oferta = Oferta::find($oferta_id);
+                $company = $oferta->user; 
+                Notification::send($company, new InterviewRequest($oferta->title,$oferta->id));
+                Notification::send($user, new InterviewRequestStudent($oferta->title,$oferta->id));
+            }
+        }
+    }
+
+    public function delete_apply($oferta_id, $user_id){
+        if(\Auth::user()->id == $user_id){
+            $user = User::find($user_id);
+            $oferta = Oferta::find($oferta_id);
+            $company = $oferta->user; 
+            InEntrevistaRequest::where('user_id',$user_id)->where('oferta_id',$oferta_id)->first()->delete();
+            Notification::send($company, new CancelInterviewRequest($oferta->title,$oferta->id));
+            Notification::send($user, new CancelInterviewRequestStudent($oferta->title,$oferta->id));
+        }
+    }
+
+    public function interview($id){
+        $oferta = Oferta::find($id);
+        $users = $oferta->users()->paginate(20);
+        return view('ofertas.interview_requests',compact("oferta", "users"));
+    }
+
+    public function show($id){
+        $oferta = Oferta::find($id);
+        $company = $oferta->user;
+        return view('ofertas.show', compact("oferta","company"));
     }
 
 }
