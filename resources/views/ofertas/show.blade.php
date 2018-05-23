@@ -28,7 +28,7 @@
 		            </div>
 		        @endif
 		        @if(Auth::user()->roll == env("STUDENT"))
-		        	@include('candidates.apply', ['url' => $oferta->student(Auth::user()->id) ? "/apply/delete/$oferta->id/".Auth::user()->id : "/apply/add/$oferta->id/".Auth::user()->id, 'method' => 'POST'])
+		        	@include('candidates.apply', ['url' => $oferta->student(Auth::user()->id) ? url("/apply/delete/$oferta->id/".Auth::user()->id) : url("/apply/add/$oferta->id/".Auth::user()->id), 'method' => 'POST'])
 		        @endif
 			</div>
 		</div>
