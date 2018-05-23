@@ -57,4 +57,8 @@
   border-bottom: 1px solid #e7e1e1;
 }
 
+.no-margin {
+  margin: 0px;
+}
+
 /*# sourceMappingURL=laravel.css.map */

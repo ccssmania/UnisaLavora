@@ -3,7 +3,7 @@
 	<div class="big-padding text-center blue-grey white-text">
 		<h1>@lang("project.candidates")</h1>
 	</div>
-	<div class="container">
+	<div class="">
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>

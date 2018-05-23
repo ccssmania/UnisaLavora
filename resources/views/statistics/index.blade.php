@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-	<div class="container">
-		<div class="col-md-10">
+	<div class="">
+		<div class="col-md-12">
 			
 			<div class="col-md-6">
 				<div class="panel panel-info">
@@ -19,6 +19,16 @@
 					<div class="panel-body">
 						<div id="grafic_companies">
 							<?= \Lava::render('ColumnChart', \Lang::get('project.oferts'), 'grafic_companies') ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="panel panel-info">
+					<div class="panel-heading">@lang('project.interviews')</div>
+					<div class="panel-body">
+						<div id="grafic_applies">
+							<?= \Lava::render('ColumnChart', \Lang::get('project.interviews'), 'grafic_applies') ?>
 						</div>
 					</div>
 				</div>

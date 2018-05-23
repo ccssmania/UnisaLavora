@@ -79,4 +79,7 @@ return [
     "nos" => "Number of students",
     "students" => "Students",
     "statistics" => "Statistics",
+    "users" => "Users",
+    "confirm" => "Confirm",
+    "ignore" => "Ignorar",
 ];

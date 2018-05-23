@@ -26,7 +26,7 @@ class OfertaController extends Controller
 
     public function index($id){
     	$company = User::find($id)->user;
-    	$ofertas = $company->ofertas()->where('status',1)->paginate(20);
+    	$ofertas = $company->ofertas()->where('status',1)->paginate(12);
     	return view('ofertas.index',compact("ofertas", "company"));
     }
     public function create($user_id){
@@ -155,7 +155,7 @@ class OfertaController extends Controller
 
     public function interview($id){
         $oferta = Oferta::find($id);
-        $users = $oferta->users()->paginate(20);
+        $users = $oferta->users()->paginate(12);
         return view('ofertas.interview_requests',compact("oferta", "users"));
     }
 

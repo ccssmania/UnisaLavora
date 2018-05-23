@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-<div class="container little-margin-top">
+<div class=" little-margin-top">
 	<h1>Perfil</h1>
 	        <table class="table">
 	            <tr>

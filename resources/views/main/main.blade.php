@@ -5,11 +5,11 @@
 <div class="flex-center position-ref full-height">
             
 
-        <div class="container">
+        <div class="">
 
             <div class="row">
 
-                <div class="col-md-9 ">
+                <div class="col-md-12">
 
                     
                     <div class="text-center tipo">
