@@ -183,6 +183,14 @@ return [
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Themsaid\Langman\LangmanServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+
+
+        //Google Calendar
+        Spatie\GoogleCalendar\GoogleCalendarServiceProvider::class,
+
+
+        //
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
     ],
 
     /*
@@ -234,6 +242,8 @@ return [
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
 
     ],
 

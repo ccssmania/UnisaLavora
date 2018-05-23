@@ -31,6 +31,10 @@
                         <li class="{{explode('@',Route::getCurrentRoute()->getActionName())[0] == "App\Http\Controllers\OfertaController" ? 'active' : ''}}">
                             <a href="{{url('/oferts/'.Auth::user()->id)}}"><i class="fa fa-user"></i><span>@lang('project.oferts') </span></a></li>
                     @endif
+                    @if(Auth::user()->roll == env("ADMINISTRATOR"))
+                        <li class="{{Route::getCurrentRoute()->getActionName() == "App\Http\Controllers\HomeController@statistics" ? 'active' : ''}}">
+                            <a href="{{url('/statistics')}}"><i class="fa fa-line-chart"></i><span>@lang('project.statistics')</span></a></li>
+                    @endif
                     <li class="treeview">
                         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                             <span class="pull-right-container">

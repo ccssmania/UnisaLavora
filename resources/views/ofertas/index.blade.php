@@ -33,7 +33,7 @@
 	</div>
 	@if(Auth::user()->id == $company->user->id)
 		<div class="floating">
-			<a href="{{url('/oferts/create/'.Auth::user()->id)}}" class="btn btn-primary btn-fab">
+			<a href="{{url('/oferts/create/'.Auth::user()->id)}}" class="btn btn-info btn-fab">
 				<i class="material-icons">add</i>
 			</a>
 		</div>

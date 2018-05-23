@@ -1,16 +1,16 @@
 <div class="col-md-4 ">
-	<div class="box box-solid box-{{$oferta->status == 0 ? 'danger' : 'primary'}}" style="width: 25rem; min-height: 350px; max-height: 350px;">
+	<div class="box box-solid box-{{$oferta->status == 0 ? 'danger' : 'primary'}}" style="width: 25rem; min-height: 450px; max-height: 450px; ">
 		<div class="box-header"> {{$oferta->title}}
 			
 		 </div>
-		<div class="text-center">
-			
+		<div class="text-center  border-bot">
+			<h3 class="text-center">@lang("project.description") </h3>	
 		</div>
-		<h3 class="text-center border-bot">@lang("project.description") </h3>
-		<div class="tex-center">
-			<h5>{!!$oferta->description!!}</h5>
+		
+		<div class="tex-center" style="max-height: 230px; overflow-y: scroll;">
+			<h5 class="text-responsive">{!!$oferta->description!!}</h5>
 		</div>
-		<div class="box-body">
+		<div class="box-body text-center">
 			@if(file_exists(storage_path('app/ofr/'.$oferta->id.'.pdf')))
 	        	<a target="_blank" href="{{url('/ofr/'.$oferta->id.'.pdf')}}">@lang('project.ofert')</a>
 	        @endif

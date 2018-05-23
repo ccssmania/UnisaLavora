@@ -49,4 +49,12 @@
   display: inline-block;
 }
 
+.text-responsive {
+  max-height: 250px;
+}
+
+.border-bot {
+  border-bottom: 1px solid #e7e1e1;
+}
+
 /*# sourceMappingURL=laravel.css.map */

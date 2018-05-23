@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('header_title',trans('project.candidates'))
-@section('header_description',trans('project.interview'))
+@section('header_description',trans('project.interviews'))
 @section('content')	
 	<div class="box box-solid box-{{$oferta->status == 0 ? 'danger' : 'primary'}}" style="width: 25rem; min-width: 100%; min-height: 100%">
 		<div class="box-header"> {{$oferta->title}}  @if(file_exists(storage_path('app/ofr/'.$oferta->id.'.pdf')))

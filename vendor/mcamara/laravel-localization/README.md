@@ -16,16 +16,16 @@ Easy i18n localization for Laravel, an useful tool to combine with Laravel local
 - <a href="#usage">Usage</a>
     - <a href="#middleware">Middleware</a>
 - <a href="#helpers">Helpers</a>
+    - <a href="#route-model-binding">Route Model Binding</a>
 - <a href="#translated-routes">Translated Routes</a>
 - <a href="#config">Config</a>
     - <a href="#config-files">Config files</a>
     - <a href="#service-providers">Service providers</a>
+- <a href="#caching-routes">Caching routes</a>
 - <a href="#changelog">Changelog</a>
 - <a href="#license">License</a>
 
 ## Laravel compatibility
-
-Laravel 5 is released!!
 
  Laravel      | laravel-localization
 :-------------|:----------
@@ -33,13 +33,16 @@ Laravel 5 is released!!
  4.1.x        | 0.13.x
  4.2.x        | 0.15.x
  5.0.x/5.1.x  | 1.0.x
- 5.2.x-5.4.x  | 1.2.x
+ 5.2.x-5.4.x (PHP 7 not required)  | 1.2.x
+ 5.2.x-5.6.x (PHP 7 required) | 1.3.x
 
 ## Installation
 
 Install the package via composer: `composer require mcamara/laravel-localization`
 
-Register the ServiceProvider in `config/app.php`
+In Laravel 5.5, the service provider and facade will automatically get registered. For older versions of the framework, follow the steps below:
+
+Register the service provider in `config/app.php`
 
 ```php
         'providers' => [
@@ -48,7 +51,7 @@ Register the ServiceProvider in `config/app.php`
         ],
 ```
 
-You may also register the `LaravelLocalization` Facade:
+You may also register the `LaravelLocalization` facade:
 
 ```php
         'aliases' => [
@@ -191,6 +194,11 @@ public function getLocalizedURL($locale = null, $url = null, $attributes = array
 ```
 
 It returns a URL localized to the desired locale.
+
+##### Route Model Binding
+
+Note that [route model binding]([https://laravel.com/docs/master/routing#route-model-binding]) is taken into account when generating the localized route.
+
 
 ### Get Clean routes
 
@@ -384,6 +392,8 @@ If you're supporting multiple locales in your project you will probably want to 
 ```
 Here default language will be forced in getLocalizedURL() to be present in the URL even `hideDefaultLocaleInURL = true`.
 
+Note that <a href="#route-model-binding">Route Model Binding</a> is supported.
+
 ## Translated Routes
 
 You can adapt your URLs depending on the language you want to show them. For example, http://url/en/about and http://url/es/acerca (acerca is about in spanish) or http://url/en/view/5 and http://url/es/ver/5 (view == ver in spanish) would be redirected to the same controller using the proper filter and setting up the translation files as follows:
@@ -437,7 +447,7 @@ function() {
 ```
 In the routes file you just have to add the `LaravelLocalizationRoutes` filter and the `LaravelLocalization::transRoute` function to every route you want to translate using the translation key.
 
-Then you have to create the translation files and add there every key you want to translate. I suggest to create a routes.php file inside your resources/lang/language_abbreviation folder. For the previous example, I have created two translations files, these two files would look like:
+Then you have to create the translation files and add there every key you want to translate. I suggest to create a routes.php file inside your `resources/lang/language_abbreviation` folder. For the previous example, I have created two translations files, these two files would look like:
 ```php
 // resources/lang/en/routes.php
 return [
@@ -455,7 +465,7 @@ return [
 ];
 ```
 
-Once files are saved, you can access to http://url/en/about , http://url/es/acerca , http://url/en/view/5 and http://url/es/ver/5 without any problem. The `getLanguageBar` function would work as desired and it will translate the routes to all translated languages (don't forget to add any new route to the translation file).
+Once files are saved, you can access to http://url/en/about , http://url/es/acerca , http://url/en/view/5 and http://url/es/ver/5 without any problem.
 
 ## Events
 
@@ -517,6 +527,10 @@ class ConfigServiceProvider extends ServiceProvider {
 This config would add Catalan and Achinese as languages and override any other previous supported locales and all the other options in the package.
 
 You can create your own config providers and add them on your application config file (check the providers array in `config/app.php`).
+
+## Caching routes
+
+If you want to cache the routes in all languages, please refer to this package: [https://github.com/czim/laravel-localization-route-cache](https://github.com/czim/laravel-localization-route-cache)
 
 ## Changelog
 View changelog here -> [changelog](CHANGELOG.md)

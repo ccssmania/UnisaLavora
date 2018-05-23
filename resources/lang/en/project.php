@@ -73,4 +73,10 @@ return [
     "cancel_interview_line_student" => "Did you cancelled the apply on ofert",
     "interviews" => "Interviews",
     "dnf" => "does not found",
+    "see_more" => "See more",
+    "noc" => "Number of companies",
+    "month" => "Month",
+    "nos" => "Number of students",
+    "students" => "Students",
+    "statistics" => "Statistics",
 ];

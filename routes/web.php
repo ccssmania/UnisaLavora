@@ -38,7 +38,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	});
 	Route::get('/', 'HomeController@home');
 	Auth::routes();
-
+	Route::get('/statistics', 'HomeController@statistics');
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/activate', 'ActivateController@index');

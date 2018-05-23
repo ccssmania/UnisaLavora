@@ -73,4 +73,10 @@ return [
     "cancel_interview_line_student" => "has cancelado la solicitud de entrevista en la oferta oferta",
     "interviews" => "Entrevistas",
     "dnf" => "No encontrado",
+    "see_more" => "Ver más",
+    "noc" => "Numero de compañias",
+    "month" => "Mes",
+    "nos" => "Numero de estudiantes",
+    "students" => "Estudiantes",
+    "statistics" => "Estadísticas",
 ];

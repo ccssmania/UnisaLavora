@@ -3,6 +3,7 @@
 namespace Mcamara\LaravelLocalization;
 
 use Illuminate\Config\Repository;
+use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
@@ -211,7 +212,7 @@ class LaravelLocalization
      * @param string|bool  $locale     Locale to adapt, false to remove locale
      * @param string|false $url        URL to adapt in the current language. If not passed, the current url would be taken.
      * @param array        $attributes Attributes to add to the route, if empty, the system would try to extract them from the url.
-     * @param bool         $forceDefaultLocation Force to show default location even hideDefaultLocaleInURL set as TRUE	
+     * @param bool         $forceDefaultLocation Force to show default location even hideDefaultLocaleInURL set as TRUE
      *
      * @throws SupportedLocalesNotDefined
      * @throws UnsupportedLocaleException
@@ -485,7 +486,7 @@ class LaravelLocalization
             return $this->currentLocale;
         }
 
-        if ($this->useAcceptLanguageHeader()) {
+        if ($this->useAcceptLanguageHeader() && !$this->app->runningInConsole()) {
             $negotiator = new LanguageNegotiator($this->defaultLocale, $this->getSupportedLocales(), $this->request);
 
             return $negotiator->negotiateLanguage();
@@ -551,6 +552,9 @@ class LaravelLocalization
     protected function substituteAttributesInRoute($attributes, $route)
     {
         foreach ($attributes as $key => $value) {
+            if ($value instanceOf UrlRoutable) {
+                $value = $value->getRouteKey();
+            }
             $route = str_replace('{'.$key.'}', $value, $route);
             $route = str_replace('{'.$key.'?}', $value, $route);
         }
@@ -829,7 +833,7 @@ class LaravelLocalization
                 return [];
             }
 
-            $attributes = $this->router->current()->parameters();
+            $attributes = $this->normalizeAttributes($this->router->current()->parameters());
             $response = event('routes.translation', [$locale, $attributes]);
 
             if (!empty($response)) {
@@ -876,4 +880,19 @@ class LaravelLocalization
 
         return $url;
     }
+
+    /**
+    * Normalize attributes gotten from request parameters.
+    *
+    * @param      array  $attributes  The attributes
+    * @return     array  The normalized attributes
+    */
+     protected function normalizeAttributes($attributes)
+     {
+         if (array_key_exists('data', $attributes) && is_array($attributes['data']) && ! count($attributes['data'])) {
+             $attributes['data'] = null;
+             return $attributes;
+         }
+         return $attributes;
+     }
 }
