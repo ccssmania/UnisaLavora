@@ -52,20 +52,21 @@ class HomeController extends Controller
             return Carbon::parse($date->created_at)->format('m');
         });*/
 
-
+        $year = $request->year ? $request->year : '%';
+        $month = $request->month ? $request->month : '%';
+        $day = $request->day ? $request->day : '%';
+        $date = $year.'-'.$month.'-'.$day;
         //----------------_Accepted-------------------------------------------------------
-
+        
         $applies_a =  InEntrevistaRequest::where('status',1)
-                ->whereYear('created_at','like',$request->year ? $request->year : '%')
-                ->whereMonth('created_at','like', $request->month ? $request->month : '%')
-                ->whereDay('created_at', 'like', $request->day ? $request->day : '%')
+                ->whereDate('created_at','like',$date)
                 ->get(['created_at'])
                 ->groupBy(function($date) {
                     return Carbon::parse($date->created_at)->format('y-m-d');
                 });
         $applies_a_plot = \Lava::DataTable();
         
-
+        
         $applies_a_plot->addDateColumn(\Lang::get('project.month'))
                 ->addNumberColumn(\Lang::get('project.interviews_accepted'))
                 ->setDateTimeFormat('y-m-d');
@@ -86,9 +87,7 @@ class HomeController extends Controller
         //---------------------------------Rejected----------------------------------------------
 
         $applies_r =  InEntrevistaRequest::where('status',2)
-                ->whereYear('created_at','like',$request->year ? $request->year : '%')
-                ->whereMonth('created_at','like', $request->month ? $request->month : '%')
-                ->whereDay('created_at', 'like', $request->day ? $request->day : '%')
+                ->whereDate('created_at','like',$date)
                 ->get(['created_at'])
                 ->groupBy(function($date) {
                     return Carbon::parse($date->created_at)->format('y-m-d');
@@ -116,9 +115,7 @@ class HomeController extends Controller
 
         //Ofertas-------------------------------------------------------------------
 
-        $ofertas = Oferta::whereYear('created_at','like',$request->year ? $request->year : '%')
-                ->whereMonth('created_at','like', $request->month ? $request->month : '%')
-                ->whereDay('created_at', 'like', $request->day ? $request->day : '%')
+        $ofertas = Oferta::whereDate('created_at','like',$date)
                 ->get(['created_at'])
                 ->groupBy(function($date) {
                     return Carbon::parse($date->created_at)->format('y-m-d');
@@ -143,9 +140,7 @@ class HomeController extends Controller
         //---------------------------------------------------------------------------------------------------
 
         $applies =  InEntrevistaRequest::where('status', 0)
-                ->whereYear('created_at','like',$request->year ? $request->year : '%')
-                ->whereMonth('created_at','like', $request->month ? $request->month : '%')
-                ->whereDay('created_at', 'like', $request->day ? $request->day : '%')
+                ->whereDate('created_at','like',$date)
                 ->get(['created_at'])
                 ->groupBy(function($date) {
                     return Carbon::parse($date->created_at)->format('y-m-d');
