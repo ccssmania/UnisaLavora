@@ -67,7 +67,7 @@ class HomeController extends Controller
         
 
         $applies_a_plot->addDateColumn(\Lang::get('project.month'))
-                ->addNumberColumn(\Lang::get('project.interviews'))
+                ->addNumberColumn(\Lang::get('project.interviews_accepted'))
                 ->setDateTimeFormat('y-m-d');
         
         
@@ -76,13 +76,42 @@ class HomeController extends Controller
             $applies_a_plot->addRow([ (string)$key, $m->count()]);
         }
         \Lava::ColumnChart(\Lang::get('project.interviews_accepted'), $applies_a_plot, [
-            'title' => \Lang::get('project.interviews'),
+            'title' => \Lang::get('project.interviews_accepted'),
             'titleTextStyle' => [
                 'color'    => '#eb6b2c',
                 'fontSize' => 14
             ]
         ]);
 
+        //---------------------------------Rejected----------------------------------------------
+
+        $applies_r =  InEntrevistaRequest::where('status',2)
+                ->whereYear('created_at','like',$request->year ? $request->year : '%')
+                ->whereMonth('created_at','like', $request->month ? $request->month : '%')
+                ->whereDay('created_at', 'like', $request->day ? $request->day : '%')
+                ->get(['created_at'])
+                ->groupBy(function($date) {
+                    return Carbon::parse($date->created_at)->format('y-m-d');
+                });
+        $applies_r_plot = \Lava::DataTable();
+        
+
+        $applies_r_plot->addDateColumn(\Lang::get('project.month'))
+                ->addNumberColumn(\Lang::get('project.interviews_rejected'))
+                ->setDateTimeFormat('y-m-d');
+        
+        
+        foreach ($applies_r as $key => $m) {
+            
+            $applies_r_plot->addRow([ (string)$key, $m->count()]);
+        }
+        \Lava::ColumnChart(\Lang::get('project.interviews_rejected'), $applies_r_plot, [
+            'title' => \Lang::get('project.interviews_rejected'),
+            'titleTextStyle' => [
+                'color'    => '#d9534f',
+                'fontSize' => 14
+            ]
+        ]);
 
 
         //Ofertas-------------------------------------------------------------------
