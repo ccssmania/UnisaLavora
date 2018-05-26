@@ -28,7 +28,14 @@
 		            </div>
 		        @endif
 		        @if(Auth::user()->roll == env("STUDENT"))
-		        	@include('candidates.apply', ['url' => $oferta->student(Auth::user()->id) ? url("/apply/delete/$oferta->id/".Auth::user()->id) : url("/apply/add/$oferta->id/".Auth::user()->id), 'method' => 'POST'])
+		        	@if($oferta->student_status(Auth::user()->id) || $oferta->student(Auth::user()->id))
+		        		@include('candidates.apply', ['url' => $oferta->student(Auth::user()->id) ? url("/apply/delete/$oferta->id/".Auth::user()->id) : url("/apply/add/$oferta->id/".Auth::user()->id), 'method' => 'POST'])
+		        
+		        	@elseif($oferta->student(Auth::user()->id) && $oferta->student(Auth::user()->id)->status == 1)
+		        		<h4 class="text-center">@lang('project.y_w_a') </h4>
+		        	@elseif($oferta->student(Auth::user()->id) && $oferta->student(Auth::user()->id)->status == 2)
+		        		<h4 class="text-center">@lang('project.y_w_r') </h4>
+		        	@endif
 		        @endif
 			</div>
 		</div>

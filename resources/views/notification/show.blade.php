@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container big-margin-top">
+<div class=" big-margin-top">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">@lang("project.notification") </div>
 
@@ -22,7 +22,7 @@
 							</p>
 							<table>
 								<td>
-									{!!$notification->data['description']!!}
+									{{$notification->data['description']}}
 								</td>
 							</table>
 								

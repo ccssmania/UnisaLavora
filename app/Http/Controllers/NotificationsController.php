@@ -14,12 +14,15 @@ class NotificationsController extends Controller
 
     public function index($type, $id){
     	$notification = Notification::find($id);
-    	if($type === "user_activate"){
-    		return redirect("/activate");
-    	}else
-    	{
-    		$notification->markAsRead();
-    		return view('notification.show', compact("notification"));
-    	}
+        if($notification->notifiable_id == \Auth::user()->id){
+            
+        	if($type === "user_activate"){
+        		return redirect("/activate");
+        	}else
+        	{
+        		$notification->markAsRead();
+        		return view('notification.show', compact("notification"));
+        	}
+        }
     }
 }

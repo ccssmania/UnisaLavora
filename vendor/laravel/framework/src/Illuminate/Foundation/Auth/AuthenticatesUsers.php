@@ -27,7 +27,6 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -100,8 +99,7 @@ trait AuthenticatesUsers
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
-        \Session::put("user_id", $this->guard()->user()->id);
-        
+
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
     }

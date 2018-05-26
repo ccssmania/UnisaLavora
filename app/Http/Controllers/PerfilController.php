@@ -98,9 +98,13 @@ class PerfilController extends Controller
                 $request->cv->storeAs('cvs',"$user->id".".pdf");
                 
             }
+
+            if (isset($request->birthday)) {
+
+                $user_sc->birthday = $request->birthday;
+            }
             
         }
-
         if($user_sc->save() && $user->save()){
             Session::flash("message", \Lang::get("project.user_updated"));
             return redirect('/perfil');

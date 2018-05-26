@@ -39,6 +39,7 @@
                             </div>
                         </div>
 
+                            
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">@lang("project.phone_number")</label>
@@ -95,10 +96,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('id') || $errors->has('dni') ? ' has-error' : '' }}" id="users_rolls">
+                        <div class="form-group{{ $errors->has('id') || $errors->has('dni') || $errors->has('birthday') ? ' has-error' : '' }}" id="users_rolls">
 
-                            <label  class="col-md-4 control-label" id="student_label" style="display: {{ ($errors->has('id') || $errors->has('dni')) && old('id') ? '' : 'none' }};">@lang("project.student") ID</label>
-                            <div class="col-md-6 " id="student_div" style="display:{{ ($errors->has('id') || $errors->has('dni'))  && old('id') ? '' : 'none' }};"> 
+                            <label  class="col-md-4 control-label" id="student_label" style="display: {{ ($errors->has('id') || $errors->has('birthday'))  ? '' : 'none' }};">@lang("project.student") ID</label>
+                            <div class="col-md-6 " id="student_div" style="display:{{ ($errors->has('id') || $errors->has('birthday')) ? '' : 'none' }};"> 
                                 <input type="text" class="form-control" id="id" name="id" required>
                                 @if ($errors->has('id'))
                                     <span class="help-block">
@@ -106,6 +107,25 @@
                                     </span>
                                 @endif
                             </div>
+
+
+
+
+                            <label  class="col-md-4 control-label" id="birth_label" style="display: {{ ($errors->has('id') || $errors->has('birthday')) ? '' : 'none' }};">@lang("project.birthday")</label>
+
+                            <div class="col-md-6 " id="birth" style="display:{{ ($errors->has('id') || $errors->has('birthday')) ? '' : 'none' }};">
+                                <input class="datepicker form-control valid" data-val="true" data-date-format="yyyy-mm-dd"  name="birthday" readonly="readonly" type="text" value="">
+
+                                @if ($errors->has('birthday'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('birthday') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            
+
+
+
                             <label  class="col-md-4 control-label" id="company_label" style="display: {{ ($errors->has('id') || $errors->has('dni'))  && old('dni') ? '' : 'none' }};">@lang("project.company") DNI</label>
                             <div class="col-md-6 " id="company_div" style="display: {{ ($errors->has('id') || $errors->has('dni'))  && old('dni')  ? '' : 'none' }};">
                                 <input type="text" class="form-control" id="dni" name="dni" required>

@@ -38,7 +38,7 @@
             </section>
 
             <!-- Main content -->
-            <section class="content container-fluid">
+            <section class="content container-fluid margin-left">
                 @yield('content')
             </section>
         </div>

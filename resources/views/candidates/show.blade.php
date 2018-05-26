@@ -1,12 +1,22 @@
 <div class="col-md-4 ">
-	<div class="box box-solid box-{{$user->active == 0 ? 'danger' : 'primary'}}" style="width: 25rem; min-height: 475px; max-height: 475px;">
+	<div class="box box-solid box-{{$user->active == 0 ? 'danger' : 'primary'}}" style="width: 29rem; min-height: 500px; max-height: 500px;">
 		<div class="box-header"> {{$user->user->name}} </div>
 		<div class="text-center">
 			
 			<img class="card-img-top " style="margin-top: 15px; " src="{{url('/images/small/'.$user->id.'.jpg')}}" onerror="this.src='{{url("/images/small/perfil.png")}}'" alt="Card image cap">
 		</div>
 		<div class="box-body">
-			<h4 class="box-title text-center">@if($user->roll == env("COMPANY"))<a href=" {{url('/oferts/'.$user->id)}} ">{{$user->user->name}}</a>@else {{$user->user->name}}@endif</h4>
+			<h4 class="box-title text-center">
+				@if($user->roll == env("COMPANY"))
+					<a href=" {{url('/company/'.$user->id)}} ">{{$user->user->name}}</a>
+				@elseif($user->roll == env("STUDENT"))
+					<a href=" {{url('/student/'.$user->id)}} ">{{$user->user->name}}</a>
+					<br>
+					<h5 class="text-center"> <strong>@lang('project.age') : {{$user->user->age()}}</strong></h5>
+				@else 
+					{{$user->user->name}}
+				@endif
+			</h4>
 			<p class="box-text">{{$user->user->about ? $user->user->about : ''}}</p>
 		</div>
 		<div class="box-footer">

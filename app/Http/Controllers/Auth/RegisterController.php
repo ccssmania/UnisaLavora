@@ -56,6 +56,7 @@ class RegisterController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
+                'birthday' => 'required|date',
                 'id' => 'integer|required|unique:student',
             ]);
         }elseif(isset($data['dni'])){
@@ -101,13 +102,13 @@ class RegisterController extends Controller
                     return redirect("/register");
                 }
             }elseif($data['roll'] == env("STUDENT")){
-
                 $student = new Student();
                 $student->name = $data['name'];
                 $student->phone = $data['phone'];
                 $student->address = $data['address'];
                 $student->user_id = $user->id;
                 $student->id = $data['id'];
+                $student->birthday = $data['birthday'];
                 if($student->save()){
                     $users = User::where('roll',0)->get();
                     Notification::send($users, new UserActivate());

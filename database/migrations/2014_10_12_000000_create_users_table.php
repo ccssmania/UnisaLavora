@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('roll');
             $table->integer('active')->default(0);
+            $table->text('about')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -11,4 +11,12 @@ class InEntrevistaRequest extends Model
     protected $fillable = [
     	'user_id','oferta_id','status'
     ];
+
+    public function oferta(){
+    	return $this->belongsTo('App\Oferta');
+    }
+
+    public function user(){
+    	return $this->belongsTo('App\User');
+    }
 }

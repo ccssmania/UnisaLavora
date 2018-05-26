@@ -61,7 +61,7 @@ class CancelInterviewRequestStudent extends Notification
     {
         return [
             'type' => 'cancel_interview_request_student',
-            'description' => \Lang::get("cancel_project.interview_line_student"). ' ' . $this->name,
+            'description' => \Lang::get("project.cancel_interview_line_student"). ' ' . $this->name,
             'name' => \Lang::get("project.interview_subject"),
             'oferta' => [
                 'name' => $this->name,

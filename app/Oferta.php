@@ -24,6 +24,23 @@ class Oferta extends Model
     }
 
     public function student($id){
-    	return $this->students()->where('user_id',$id)->first();
+    	return $this->students()->where('user_id',$id)->where('status',0)->first();
+    }
+    public function student_status($id){
+        return $this->students()->where('user_id',$id)->first();
+    }
+    public function users_apply(){
+        return $this->belongsToMany('App\User', 'in_entrevista_request', 'oferta_id', 'user_id')->wherePivot('status',0);
+    }
+    public function users_cancel(){
+        return $this->belongsToMany('App\User', 'in_entrevista_request', 'oferta_id', 'user_id')->wherePivot('status',4);
+    }
+    public function users_rejected(){
+        return $this->belongsToMany('App\User', 'in_entrevista_request', 'oferta_id', 'user_id')->wherePivot('status',2);
+    }
+
+
+    public function users_accepted(){
+        return $this->belongsToMany('App\User', 'in_entrevista_request', 'oferta_id', 'user_id')->wherePivot('status',1);
     }
 }

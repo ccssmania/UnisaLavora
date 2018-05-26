@@ -31,11 +31,15 @@
                         <li class="{{explode('@',Route::getCurrentRoute()->getActionName())[0] == "App\Http\Controllers\OfertaController" ? 'active' : ''}}">
                             <a href="{{url('/oferts/'.Auth::user()->id)}}"><i class="fa fa-user"></i><span>@lang('project.oferts') </span></a></li>
                     @endif
+                    @if(Auth::user()->roll == env("STUDENT"))
+                        <li class="{{Route::getCurrentRoute()->getActionName() == "App\Http\Controllers\StudentController@index" ? 'active' : ''}}">
+                            <a href="{{url('/my_requests/'.Auth::user()->id)}}"><i class="fa fa-paper-plane"></i><span>@lang('project.my_requests') </span></a></li>
+                    @endif
                     @if(Auth::user()->roll == env("ADMINISTRATOR"))
                         <li class="{{Route::getCurrentRoute()->getActionName() == "App\Http\Controllers\HomeController@statistics" ? 'active' : ''}}">
                             <a href="{{url('/statistics')}}"><i class="fa fa-line-chart"></i><span>@lang('project.statistics')</span></a></li>
                     @endif
-                    <li class="treeview">
+                    <!--<li class="treeview">
                         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -45,7 +49,7 @@
                             <li><a href="#">Link in level 2</a></li>
                             <li><a href="#">Link in level 2</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul><!-- /.sidebar-menu -->
             </section>
             <!-- /.sidebar -->

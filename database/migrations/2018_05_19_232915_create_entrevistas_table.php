@@ -15,8 +15,8 @@ class CreateEntrevistasTable extends Migration
     {
         Schema::create("entrevistas", function(Blueprint $table){
             $table->increments('id');
-            $table->integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('student');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('company_id')->references("id")->on("company");
             $table->integer("oferta_id")->unsigned();
             $table->foreign("oferta_id")->references("id")->on("ofertas");

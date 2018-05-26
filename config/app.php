@@ -191,6 +191,10 @@ return [
 
         //
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+
+        //
+        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
+
     ],
 
     /*
@@ -244,6 +248,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+        'Tracker' => PragmaRX\Tracker\Vendor\Laravel\Facade::class,
 
     ],
 

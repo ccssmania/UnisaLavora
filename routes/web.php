@@ -36,6 +36,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 		}
 		return redirect("/");
 	});
+
+
 	Route::get('/', 'HomeController@home');
 	Auth::routes();
 	Route::get('/statistics', 'HomeController@statistics');
@@ -46,12 +48,20 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 	Route::get('/perfil', 'PerfilController@index');
 	Route::get('/perfil/edit/{id}', 'PerfilController@edit');
 	
+	Route::get('/student/{id}', 'StudentController@show');
+	Route::get('/company/{id}', 'CompanyController@show');
+
+	//interview
+	Route::get('/interview/accept/{user_id}/{oferta_id}', 'InterviewController@accept');
+	Route::get('/interview/delete/{user_id}/{oferta_id}', 'InterviewController@reject');
+
 	Route::get('/oferts/{id}', 'OfertaController@index');
 	Route::get('/ofert/{id}', 'OfertaController@show');
 	Route::get('/oferts/{user_id}/{ofert_id}/edit', 'OfertaController@edit');
 	Route::get('/oferts/create/{user_id}', 'OfertaController@create');
 	Route::get('/interview/{id}', 'OfertaController@interview');
 	Route::get('/notification/{type}/{id}', 'NotificationsController@index');
+	Route::get('/my_requests/{id}', 'StudentController@index');
 
 	Route::get('/images/{filename}',function($filename){
 		$path = storage_path("app/images/$filename");
