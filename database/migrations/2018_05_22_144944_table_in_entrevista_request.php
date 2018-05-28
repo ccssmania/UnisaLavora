@@ -17,8 +17,10 @@ class TableInEntrevistaRequest extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('oferta_id')->unsigned();
+            $table->integer('company_id')->unsigned();
             $table->integer('status')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('company_id')->references('user_id')->on('company');
             $table->foreign('oferta_id')->references('id')->on('ofertas');
             $table->timestamps();
         });

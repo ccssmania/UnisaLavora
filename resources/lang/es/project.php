@@ -100,4 +100,6 @@ return [
     "interviews_accepted" => "Entrevistas Aceptadas",
     "interview_request" => "Solicitudes de entrevistas",
     "interviews_rejected" => "Entrevistas rechazadas",
+    "user" => "Usuario",
+    "total" => "Total",
 ];

@@ -37,7 +37,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 		return redirect("/");
 	});
 
-
+	Route::get('/users', 'UserController@userComplete');
 	Route::get('/', 'HomeController@home');
 	Auth::routes();
 	Route::get('/statistics', 'HomeController@statistics');

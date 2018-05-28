@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Oferta extends Model
 {
     protected $fillable = [
@@ -22,7 +22,18 @@ class Oferta extends Model
     public function students(){
     	return $this->hasMany('App\InEntrevistaRequest');
     }
-
+    public function apply(){
+        return $this->hasMany('App\InEntrevistaRequest','oferta_id');
+    }
+    public function applies(){
+        return $this->apply()->where('status',0)->get();
+    }
+    public function applies_accepted(){
+        return $this->apply()->where('status',1)->get();
+    }
+    public function applies_rejected(){
+        return $this->apply()->where('status',2)->get();
+    }
     public function student($id){
     	return $this->students()->where('user_id',$id)->where('status',0)->first();
     }

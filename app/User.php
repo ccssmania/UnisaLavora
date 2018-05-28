@@ -37,6 +37,6 @@ class User extends Authenticatable
     }
 
     public function ofertas(){
-        return $this->belongsToMany('App\Oferta', ' in_entrevista_request', 'user_id', 'oferta_id');
+        return $this->belongsToMany('App\Oferta', 'in_entrevista_request', 'user_id', 'oferta_id');
     }
 }

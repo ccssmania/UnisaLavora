@@ -21,4 +21,6 @@ class Company extends Model
     public function ofertas(){
     	return $this->hasMany('App\Oferta', 'user_id','user_id');
     }
+
+    
 }
