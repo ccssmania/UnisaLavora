@@ -10,7 +10,7 @@
 				
 			</div>
 			<h3 class="text-center border-bot">@lang("project.description") </h3>
-			<div class="tex-center">
+			<div class="tex-center col-md-10 col-md-offset-1">
 				<h5>{!!$oferta->description!!}</h5>
 			</div>
 			<div class="box-body">
@@ -28,7 +28,7 @@
 		            </div>
 		        @endif
 		        @if(Auth::user()->roll == env("STUDENT"))
-		        	@if($oferta->student_status(Auth::user()->id) || $oferta->student(Auth::user()->id))
+		        	@if(!($oferta->student_status(Auth::user()->id)) || $oferta->student_status(Auth::user()->id) || $oferta->student(Auth::user()->id))
 		        		@include('candidates.apply', ['url' => $oferta->student(Auth::user()->id) ? url("/apply/delete/$oferta->id/".Auth::user()->id) : url("/apply/add/$oferta->id/".Auth::user()->id), 'method' => 'POST'])
 		        
 		        	@elseif($oferta->student(Auth::user()->id) && $oferta->student(Auth::user()->id)->status == 1)

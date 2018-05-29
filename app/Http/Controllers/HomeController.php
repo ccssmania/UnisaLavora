@@ -245,6 +245,7 @@ class HomeController extends Controller
             $applies = InModel::getInterviews($request->user, $date);
             $applies_plot = \Lava::DataTable();
             
+            
 
             $applies_plot->addDateColumn(\Lang::get('project.month'))
                     ->addNumberColumn(\Lang::get('project.interviews'))

@@ -38,7 +38,7 @@ class Oferta extends Model
     	return $this->students()->where('user_id',$id)->where('status',0)->first();
     }
     public function student_status($id){
-        return $this->students()->where('user_id',$id)->first();
+        return $this->students()->where('user_id',$id)->where('status', 4)->first();
     }
     public function users_apply(){
         return $this->belongsToMany('App\User', 'in_entrevista_request', 'oferta_id', 'user_id')->wherePivot('status',0);
