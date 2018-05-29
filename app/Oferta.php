@@ -35,7 +35,7 @@ class Oferta extends Model
         return $this->apply()->where('status',2)->get();
     }
     public function student($id){
-    	return $this->students()->where('user_id',$id)->where('status',0)->first();
+    	return $this->students()->where('user_id',$id)->first();
     }
     public function student_status($id){
         return $this->students()->where('user_id',$id)->where('status', 4)->first();
