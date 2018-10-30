@@ -1,11 +1,11 @@
 <?php 
 
 return [
-    'order' => '',
-    'orders' => '',
-    'order_number' => '',
-    'date' => '',
-    'customer' => '',
-    'total_amount' => '',
-    'status' => '',
+    'order' => 'ordine',
+    'orders' => 'ordini',
+    'order_number' => 'numero di ordine',
+    'date' => 'data',
+    'customer' => 'cliente',
+    'total_amount' => 'importo totale',
+    'status' => 'stato',
 ];

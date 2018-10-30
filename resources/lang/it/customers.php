@@ -1,14 +1,14 @@
 <?php 
 
 return [
-    'customer' => '',
-    'customers' => '',
-    'first_name' => '',
-    'last_name' => '',
-    'email' => '',
-    'postal_address' => '',
-    'physical_address' => '',
-    'action' => '',
-    'edit_customer' => '',
-    'create_customer' => '',
+    'customer' => 'cliente',
+    'customers' => 'clienti',
+    'first_name' => 'nome',
+    'last_name' => 'cognome',
+    'email' => 'e-mail',
+    'postal_address' => 'indirizo postale',
+    'physical_address' => 'indirizo',
+    'action' => 'azione',
+    'edit_customer' => 'modificare cliente',
+    'create_customer' => 'creare cliente',
 ];

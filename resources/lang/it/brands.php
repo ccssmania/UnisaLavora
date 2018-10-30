@@ -1,10 +1,10 @@
 <?php 
 
 return [
-    'brand' => '',
-    'brands' => '',
-    'description' => '',
-    'action' => '',
-    'edit_brand' => '',
-    'create_brand' => '',
+    'brand' => 'Brand',
+    'brands' => 'Marche',
+    'description' => 'Descrizione',
+    'action' => 'Azione',
+    'edit_brand' => 'Modificare Marca',
+    'create_brand' => 'Creare Marca',
 ];

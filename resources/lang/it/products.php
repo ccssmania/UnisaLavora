@@ -1,15 +1,15 @@
 <?php 
 
 return [
-    'product' => '',
-    'products' => '',
-    'code' => '',
-    'name' => '',
-    'description' => '',
-    'price' => '',
-    'brand' => '',
-    'category' => '',
-    'action' => '',
-    'edit_product' => '',
-    'create_product' => '',
+    'product' => 'prodotto',
+    'products' => 'prodotti',
+    'code' => 'codice',
+    'name' => 'nome',
+    'description' => 'descrizione',
+    'price' => 'prezzo',
+    'brand' => 'brand',
+    'category' => 'categoria',
+    'action' => 'azione',
+    'edit_product' => 'modificare prodotto',
+    'create_product' => 'creare prodotto',
 ];

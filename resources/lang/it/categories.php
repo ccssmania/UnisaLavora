@@ -1,10 +1,10 @@
 <?php 
 
 return [
-    'category' => '',
-    'categories' => '',
-    'description' => '',
-    'action' => '',
-    'edit_category' => '',
-    'create_category' => '',
+    'category' => 'Categoria',
+    'categories' => 'Categorie',
+    'description' => 'Descrizione',
+    'action' => 'Azione',
+    'edit_category' => 'Modificare Categoria',
+    'create_category' => 'Creare Categoria',
 ];
